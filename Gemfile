@@ -35,6 +35,7 @@ gem 'cells-rails'
 gem 'rspec-cells'
 gem 'cells-slim'
 gem 'pundit'
+gem 'paperclip'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
