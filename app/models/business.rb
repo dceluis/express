@@ -1,2 +1,2 @@
-class Business < ApplicationRecord
+class Business < User
 end
