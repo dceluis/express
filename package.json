@@ -1,5 +1,10 @@
 {
-  "name": "link",
+  "name": "Express",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "carbon-components": "^7.22.1"
+  },
+  "version": "0.1.0",
+  "repository": "https://github.com/sanchez2210/express.git",
+  "author": "Luis Felipe Sanchez <sanchezhorna@outlook.com>"
 }
