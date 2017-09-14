@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/about', to: 'pages#about', as: :about_page
   get '/home', to: 'pages#home', as: :home_page
 
-  resources :users
+  resources :users, except: [:create]
 
   root 'pages#home'
 end
