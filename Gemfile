@@ -48,6 +48,10 @@ group :development, :test do
   gem 'spring-commands-rspec'
 end
 
+group :test do
+  gem 'simplecov', require: false
+end
+
 group :development do
   gem 'guard', '~> 2.14'
   gem 'listen', '>= 3.0.5', '< 3.2'
