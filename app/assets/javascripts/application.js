@@ -12,4 +12,5 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require carbon-components/scripts/carbon-components.min.js
 //= require_tree .
