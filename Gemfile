@@ -29,8 +29,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem 'paperclip'
-gem 'pundit'
+gem 'devise', '~> 4.3.0'
+gem 'pundit', '~> 1.1.0'
 gem 'slim', '~> 3.0'
 gem 'slim-rails'
 
@@ -42,6 +42,9 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
+  gem 'factory_girl', '~> 4.8.0'
+  gem 'factory_girl_rails'
+  gem 'faker', '~> 1.8.4'
   gem 'guard-rspec'
   gem 'rspec-rails', '~> 3.6'
   gem 'selenium-webdriver'
@@ -54,6 +57,7 @@ end
 
 group :development do
   gem 'guard', '~> 2.14'
+  gem 'guard-livereload', '~> 2.5', require: false
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'rubocop', '~> 0.49.1', require: false
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
