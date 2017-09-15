@@ -1,0 +1,25 @@
+.bx--module.bx--module--double
+  .bx--module__inner
+    .bx--module__header
+      .bx--module__title Log in
+    .bx--module__content
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .bx--form-item
+          = f.label :email, class: 'bx--label'
+          br/
+          = f.email_field :email, autofocus: true, class: 'bx--text-input'
+        .bx--form-item
+          = f.label :password, class: 'bx--label'
+          br/
+          = f.password_field :password, autocomplete: "off", class: 'bx--text-input'
+        - if devise_mapping.rememberable?
+          .bx--form-item
+            = f.check_box :remember_me, class: 'bx--checkbox'
+            = f.label :remember_me, class: 'bx--checkbox-label' do
+              span.bx--checkbox-appearance
+                svg.bx--checkbox-checkmark fill-rule="evenodd" height="9" viewbox=("0 0 12 9") width="12" 
+                  path d=("M4.1 6.1L1.4 3.4 0 4.9 4.1 9l7.6-7.6L10.3 0z") 
+              | Remember me
+        .bx--form-item
+          = f.submit "Log in", class: 'bx--btn bx--btn--primary'
+      == render "devise/shared/links"
