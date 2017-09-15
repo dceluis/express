@@ -29,7 +29,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem 'devise', '~> 4.3.0'
+gem 'sorcery', '~> 0.11.0'
 gem 'pundit', '~> 1.1.0'
 gem 'slim', '~> 3.0'
 gem 'slim-rails'
