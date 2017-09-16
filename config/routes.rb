@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   # Static Pages
-  get '/about', to: 'pages#about', as: :about_page
-  get '/home', to: 'pages#home', as: :home_page
+  root 'pages#home'
+  # get '/about', to: 'pages#about', as: :about_page
+  # get '/home', to: 'pages#home', as: :home_page
+
+  resource :session, only: %i{new create destroy}
 
   resources :users
-
-  root 'pages#home'
 end
