@@ -1,18 +1,24 @@
-= form_for @user do |f|
-  - if @user.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
-      ul
-        - @user.errors.full_messages.each do |message|
-          li = message
+.bx--module.bx--module--double
+  .bx--module__inner
+    .bx--module__header
+      .bx--module__title User Form
+    .bx--module__content
+      = form_for @user do |f|
+        - if @user.errors.any?
+          #error_explanation
+            h2 = "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+            ul
+              - @user.errors.full_messages.each do |message|
+                li = message
 
-  .field
-    = f.label :first_name
-    = f.text_field :first_name
-  .field
-    = f.label :last_name
-    = f.text_field :last_name
-  .field
-    = f.label :email
-    = f.text_field :email
-  .actions = f.submit
+        .bx--form-item
+          = f.label :first_name, class: 'bx--label'
+          = f.text_field :first_name, class: 'bx--text-input'
+        .bx--form-item
+          = f.label :last_name, class: 'bx--label'
+          = f.text_field :last_name, class: 'bx--text-input'
+        .bx--form-item
+          = f.label :email, class: 'bx--label'
+          = f.text_field :email, class: 'bx--text-input'
+        .bx--form-item
+          = f.submit class: 'bx--btn bx--btn--primary'
