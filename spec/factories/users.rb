@@ -10,6 +10,7 @@ FactoryGirl.define do
       last_name { 'Sanchez' }
       email { 'luis@express.com' }
       password { 'zUgY66yi' }
+      after(:create, &:activate!)
     end
   end
 end
