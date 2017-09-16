@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Conversation:
+  = @message.conversation.title
+p
+  strong User:
+  = @message.user.first_name
+p
+  strong Content:
+  = @message.content
+
+= link_to 'Edit', edit_message_path(@message)
+'  |
+= link_to 'Back', messages_path
