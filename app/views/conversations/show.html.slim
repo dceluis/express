@@ -2,10 +2,10 @@ p#notice = notice
 
 p
   strong Sender:
-  = @conversation.sender
+  = @conversation.sender.first_name
 p
   strong Receiver:
-  = @conversation.receiver
+  = @conversation.receiver.first_name
 
 = link_to 'Edit', edit_conversation_path(@conversation)
 '  |

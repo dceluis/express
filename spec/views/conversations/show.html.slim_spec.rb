@@ -7,7 +7,7 @@ RSpec.describe "conversations/show", type: :view do
 
   it "renders attributes in <p>" do
     render
-    expect(rendered).to match(//)
-    expect(rendered).to match(//)
+    expect(rendered).to match(%r/#{CGI.escape_html(@conversation.sender.first_name)}/)
+    expect(rendered).to match(%r/#{CGI.escape_html(@conversation.receiver.first_name)}/)
   end
 end
