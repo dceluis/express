@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 20170915082337) do
   enable_extension "plpgsql"
 
   create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
+    t.string "first_name", null: false
+    t.string "last_name", null: false
     t.string "email", null: false
     t.string "crypted_password"
     t.string "salt"
