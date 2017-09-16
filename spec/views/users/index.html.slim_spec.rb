@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe "users/index", type: :view do
-  let(:user1) { create(:user) }
-  let(:user2) { create(:user) }
+  let(:user1) { build_stubbed(:user) }
+  let(:user2) { build_stubbed(:user) }
 
   before(:each) do
     assign(:users, [ user1, user2 ])
