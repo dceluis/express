@@ -6,5 +6,8 @@
   },
   "version": "0.1.0",
   "repository": "https://github.com/sanchez2210/express.git",
-  "author": "Luis Felipe Sanchez <sanchezhorna@outlook.com>"
+  "author": "Luis Felipe Sanchez <sanchezhorna@outlook.com>",
+  "engines": {
+    "yarn": "1.0.2"
+  }
 }
