@@ -14,7 +14,8 @@
 !/tmp/.keep
 
 /node_modules
-/yarn-error.log
+yarn-error.log
+yarn.lock
 
 .byebug_history
 
@@ -23,3 +24,4 @@
 
 # Ignore rspec local failing examples
 /spec/examples.txt
+
