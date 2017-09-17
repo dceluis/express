@@ -43,7 +43,7 @@ RSpec.describe MessagesController, type: :controller do
   describe "GET #index" do
     it "returns a success response" do
       message = Message.create! valid_attributes
-      get :index, params: {}, session: valid_session
+      get :index, params: { conversation_id: conversation.id }, session: valid_session
       expect(response).to be_success
     end
   end
@@ -58,7 +58,7 @@ RSpec.describe MessagesController, type: :controller do
 
   describe "GET #new" do
     it "returns a success response" do
-      get :new, params: {}, session: valid_session
+      get :new, params: { conversation_id: conversation.id }, session: valid_session
       expect(response).to be_success
     end
   end
@@ -66,7 +66,7 @@ RSpec.describe MessagesController, type: :controller do
   describe "GET #edit" do
     it "returns a success response" do
       message = Message.create! valid_attributes
-      get :edit, params: {id: message.to_param}, session: valid_session
+      get :edit, params: { id: message.to_param }, session: valid_session
       expect(response).to be_success
     end
   end
@@ -75,19 +75,19 @@ RSpec.describe MessagesController, type: :controller do
     context "with valid params" do
       it "creates a new Message" do
         expect {
-          post :create, params: {message: valid_attributes}, session: valid_session
+          post :create, params: { conversation_id: conversation.id, message: valid_attributes }, session: valid_session
         }.to change(Message, :count).by(1)
       end
 
       it "redirects to the created message" do
-        post :create, params: {message: valid_attributes}, session: valid_session
+        post :create, params: { conversation_id: conversation.id, message: valid_attributes }, session: valid_session
         expect(response).to redirect_to(Message.last)
       end
     end
 
     context "with invalid params" do
       it "returns a success response (i.e. to display the 'new' template)" do
-        post :create, params: {message: invalid_attributes}, session: valid_session
+        post :create, params: { conversation_id: conversation.id, message: invalid_attributes}, session: valid_session
         expect(response).to be_success
       end
     end
@@ -126,14 +126,14 @@ RSpec.describe MessagesController, type: :controller do
     it "destroys the requested message" do
       message = Message.create! valid_attributes
       expect {
-        delete :destroy, params: {id: message.to_param}, session: valid_session
+        delete :destroy, params: { id: message.to_param }, session: valid_session
       }.to change(Message, :count).by(-1)
     end
 
     it "redirects to the messages list" do
       message = Message.create! valid_attributes
-      delete :destroy, params: {id: message.to_param}, session: valid_session
-      expect(response).to redirect_to(messages_url)
+      delete :destroy, params: { id: message.to_param }, session: valid_session
+      expect(response).to redirect_to(conversation_messages_url(conversation))
     end
   end
 

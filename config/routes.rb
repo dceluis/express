@@ -4,9 +4,11 @@ Rails.application.routes.draw do
   get '/about', to: 'pages#about', as: :about_page
   get '/home', to: 'pages#home', as: :home_page
   
+  resources :users, shallow: true do
+    resources :conversations do
+      resources :messages
+    end
+  end
   resource :session, only: %i{new create destroy}
-  resources :conversations
-  resources :messages
 
-  resources :users
 end

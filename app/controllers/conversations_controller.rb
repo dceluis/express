@@ -1,5 +1,6 @@
 class ConversationsController < ApplicationController
   before_action :set_conversation, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:index, :new, :create]
 
   # GET /conversations
   # GET /conversations.json
@@ -27,7 +28,7 @@ class ConversationsController < ApplicationController
     @conversation = Conversation.new(conversation_params)
 
     respond_to do |format|
-      if @conversation.save
+      if @user.sent_conversations << @conversation
         format.html { redirect_to @conversation, notice: 'Conversation was successfully created.' }
         format.json { render :show, status: :created, location: @conversation }
       else
@@ -56,7 +57,7 @@ class ConversationsController < ApplicationController
   def destroy
     @conversation.destroy
     respond_to do |format|
-      format.html { redirect_to conversations_url, notice: 'Conversation was successfully destroyed.' }
+      format.html { redirect_to user_conversations_url(@conversation.sender), notice: 'Conversation was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -67,8 +68,12 @@ class ConversationsController < ApplicationController
       @conversation = Conversation.find(params[:id])
     end
 
+    def set_user
+      @user = User.find(params[:user_id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def conversation_params
-      params.require(:conversation).permit(:sender_id, :receiver_id)
+      params.require(:conversation).permit(:receiver_id)
     end
 end

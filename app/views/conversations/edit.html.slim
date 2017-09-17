@@ -1,8 +1,11 @@
 h1 Editing conversation
 
-== render 'form'
+= form_for @conversation do |f|
+  .field
+    = f.label :receiver_id
+    = f.text_field :receiver_id
+  .actions = f.submit
 
 = link_to 'Show', @conversation
 '  |
-= link_to 'Back', conversations_path
-
+= link_to 'Back', user_conversations_path(current_user)

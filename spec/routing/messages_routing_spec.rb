@@ -4,11 +4,11 @@ RSpec.describe MessagesController, type: :routing do
   describe "routing" do
 
     it "routes to #index" do
-      expect(:get => "/messages").to route_to("messages#index")
+      expect(:get => "/conversations/1/messages").to route_to("messages#index", conversation_id: '1')
     end
 
     it "routes to #new" do
-      expect(:get => "/messages/new").to route_to("messages#new")
+      expect(:get => "/conversations/1/messages/new").to route_to("messages#new", conversation_id: '1')
     end
 
     it "routes to #show" do
@@ -20,7 +20,7 @@ RSpec.describe MessagesController, type: :routing do
     end
 
     it "routes to #create" do
-      expect(:post => "/messages").to route_to("messages#create")
+      expect(:post => "/conversations/1/messages").to route_to("messages#create", conversation_id: '1')
     end
 
     it "routes to #update via PUT" do

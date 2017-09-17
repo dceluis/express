@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
 
+  has_many :conversations
+  has_many :sent_conversations, -> { where(sender: self) }, class_name: 'Conversation', foreign_key: 'sender_id'
+  has_many :received_conversations, -> { where(receiver: self) }, class_name: 'Conversation', foreign_key: 'receiver_id'
+
   validates :first_name, :last_name, presence: true
   validates :email, presence: true,
                     uniqueness: true,
