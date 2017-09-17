@@ -5,6 +5,8 @@ nav
         = link_to current_user.email, user_path(current_user)
       li
         = link_to 'Log Out', session_path, method: :delete, class: 'bx_link'
+      li
+        = link_to 'Conversations', user_conversations_path(current_user), class: 'bk_link'
     - else
       li
         = link_to "Log In", new_session_path, class: 'bx_link'

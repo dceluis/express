@@ -33,12 +33,12 @@ RSpec.describe MessagesController, type: :controller do
 
   let(:valid_attributes) { build( :message, conversation: conversation, user: user ).attributes }
 
-  let(:invalid_attributes) { { user_id: 0 } }
+  let(:invalid_attributes) { { content: "" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # MessagesController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  let(:valid_session) { { user_id: user.id } }
 
   describe "GET #index" do
     it "returns a success response" do
@@ -81,7 +81,7 @@ RSpec.describe MessagesController, type: :controller do
 
       it "redirects to the created message" do
         post :create, params: { conversation_id: conversation.id, message: valid_attributes }, session: valid_session
-        expect(response).to redirect_to(Message.last)
+        expect(response).to redirect_to(conversation_messages_url(conversation))
       end
     end
 
@@ -109,7 +109,7 @@ RSpec.describe MessagesController, type: :controller do
       it "redirects to the message" do
         message = Message.create! valid_attributes
         put :update, params: {id: message.to_param, message: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(message)
+        expect(response).to redirect_to(conversation_messages_url(conversation))
       end
     end
 

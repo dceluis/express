@@ -3,7 +3,6 @@ h1 Listing messages
 table
   thead
     tr
-      th Conversation
       th User
       th Content
       th
@@ -13,7 +12,6 @@ table
   tbody
     - @messages.each do |message|
       tr
-        td = message.conversation.title
         td = message.user.first_name
         td = message.content
         td = link_to 'Show', message

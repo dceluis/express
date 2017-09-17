@@ -3,8 +3,7 @@ h1 Listing conversations
 table
   thead
     tr
-      th Sender
-      th Recipient
+      th Title
       th
       th
       th
@@ -12,8 +11,7 @@ table
   tbody
     - @conversations.each do |conversation|
       tr
-        td = conversation.sender.first_name
-        td = conversation.recipient.first_name
+        td = link_to conversation.title, conversation_messages_path(conversation)
         td = link_to 'Show', conversation
         td = link_to 'Edit', edit_conversation_path(conversation)
         td = link_to 'Destroy', conversation, data: { confirm: 'Are you sure?' }, method: :delete
