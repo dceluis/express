@@ -20,4 +20,13 @@ body {
   background-color: $ui-01;
 }
 
+main{
+  padding-left: 12.5rem;
+}
+
+.container {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
 @import 'modules/index.scss';

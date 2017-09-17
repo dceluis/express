@@ -9,4 +9,6 @@ html
   body
     == render 'layouts/navbar'
     == render 'layouts/notices'
-    == yield
+    == yield(:sublayout)
+    main
+      == yield

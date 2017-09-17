@@ -1,0 +1,7 @@
+- content_for(:sublayout) do
+  nav.bx--interior-left-nav.bx--interior-left-nav--collapseable aria-label=("Interior Left Navigation") data-interior-left-nav="" role="navigation" 
+    ul.left-nav-list aria-hidden="false" data-interior-left-nav-list="" role="menubar"
+      - current_user.conversations.each do |conversation|
+        == render partial: 'layouts/sidebar_link', locals: { conversation: conversation }
+
+== render template: 'layouts/application'

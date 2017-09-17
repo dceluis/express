@@ -11,11 +11,11 @@ table
   tbody
     - @conversations.each do |conversation|
       tr
-        td = link_to conversation.title, conversation_messages_path(conversation)
+        td = link_to conversation.partner_name(current_user), conversation_messages_path(conversation)
         td = link_to 'Show', conversation
         td = link_to 'Edit', edit_conversation_path(conversation)
         td = link_to 'Destroy', conversation, data: { confirm: 'Are you sure?' }, method: :delete
 
 br
 
-= link_to 'New Conversation', new_user_conversation_path(@user)
+= link_to 'New Conversation', new_conversation_path

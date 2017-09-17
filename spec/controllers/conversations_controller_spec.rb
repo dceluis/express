@@ -37,12 +37,12 @@ RSpec.describe ConversationsController, type: :controller do
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # ConversationsController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  let(:valid_session) { { user_id: sender.id } }
 
   describe "GET #index" do
     it "returns a success response" do
       conversation = Conversation.create! valid_attributes
-      get :index, params: { user_id: sender.id }, session: valid_session
+      get :index, params: {}, session: valid_session
       expect(response).to be_success
     end
   end
@@ -132,7 +132,7 @@ RSpec.describe ConversationsController, type: :controller do
     it "redirects to the conversations list" do
       conversation = Conversation.create! valid_attributes
       delete :destroy, params: { id: conversation.to_param }, session: valid_session
-      expect(response).to redirect_to(user_conversations_url(sender))
+      expect(response).to redirect_to(conversations_url)
     end
   end
 

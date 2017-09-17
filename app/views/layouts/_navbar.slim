@@ -1,4 +1,5 @@
-nav
+nav.navbar.container
+  h1 Puerco
   ul
     - if logged_in?
       li
@@ -6,7 +7,7 @@ nav
       li
         = link_to 'Log Out', session_path, method: :delete, class: 'bx_link'
       li
-        = link_to 'Conversations', user_conversations_path(current_user), class: 'bk_link'
+        = link_to 'Conversations', conversations_path, class: 'bk_link'
     - else
       li
         = link_to "Log In", new_session_path, class: 'bx_link'

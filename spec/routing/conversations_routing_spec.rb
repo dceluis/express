@@ -3,11 +3,11 @@ require 'rails_helper'
 RSpec.describe ConversationsController, type: :routing do
   describe 'routing' do
     it 'routes to #index' do
-      expect(get: '/users/1/conversations').to route_to('conversations#index', user_id: '1')
+      expect(get: '/conversations').to route_to('conversations#index')
     end
 
     it 'routes to #new' do
-      expect(get: '/users/1/conversations/new').to route_to('conversations#new', user_id: '1')
+      expect(get: '/conversations/new').to route_to('conversations#new')
     end
 
     it 'routes to #show' do
@@ -19,7 +19,7 @@ RSpec.describe ConversationsController, type: :routing do
     end
 
     it 'routes to #create' do
-      expect(post: '/users/1/conversations').to route_to('conversations#create', user_id: '1')
+      expect(post: '/conversations').to route_to('conversations#create')
     end
 
     it 'routes to #update via PUT' do

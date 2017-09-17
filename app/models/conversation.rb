@@ -10,6 +10,17 @@ class Conversation < ApplicationRecord
     "#{sender.first_name} - #{recipient.first_name}"
   end
 
+  def partner_name(user)
+    case user.id
+    when recipient_id
+      return sender.full_name
+    when sender_id
+      return recipient.full_name
+    else
+      return "Not found"
+    end
+  end
+
   private
 
   def is_not_a_duplicate?
