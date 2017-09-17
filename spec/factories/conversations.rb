@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :conversation do
     sender factory: :user
-    receiver factory: :user
+    recipient factory: :user
   end
 end

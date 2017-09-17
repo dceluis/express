@@ -2,8 +2,8 @@ h1 Editing conversation
 
 = form_for @conversation do |f|
   .field
-    = f.label :receiver_id
-    = f.text_field :receiver_id
+    = f.label :recipient_id
+    = f.text_field :recipient_id
   .actions = f.submit
 
 = link_to 'Show', @conversation

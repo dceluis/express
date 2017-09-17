@@ -17,10 +17,10 @@ ActiveRecord::Schema.define(version: 20170916170944) do
 
   create_table "conversations", force: :cascade do |t|
     t.bigint "sender_id"
-    t.bigint "receiver_id"
+    t.bigint "recipient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["receiver_id"], name: "index_conversations_on_receiver_id"
+    t.index ["recipient_id"], name: "index_conversations_on_recipient_id"
     t.index ["sender_id"], name: "index_conversations_on_sender_id"
   end
 
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20170916170944) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
   end
 
-  add_foreign_key "conversations", "users", column: "receiver_id"
+  add_foreign_key "conversations", "users", column: "recipient_id"
   add_foreign_key "conversations", "users", column: "sender_id"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"

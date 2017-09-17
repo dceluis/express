@@ -4,7 +4,7 @@ table
   thead
     tr
       th Sender
-      th Receiver
+      th Recipient
       th
       th
       th
@@ -13,7 +13,7 @@ table
     - @conversations.each do |conversation|
       tr
         td = conversation.sender.first_name
-        td = conversation.receiver.first_name
+        td = conversation.recipient.first_name
         td = link_to 'Show', conversation
         td = link_to 'Edit', edit_conversation_path(conversation)
         td = link_to 'Destroy', conversation, data: { confirm: 'Are you sure?' }, method: :delete

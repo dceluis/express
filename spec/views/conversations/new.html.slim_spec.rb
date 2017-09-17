@@ -11,7 +11,7 @@ RSpec.describe "conversations/new", type: :view do
     render
 
     assert_select "form[action=?][method=?]", user_conversations_path(@user), "post" do
-      assert_select "input[name=?]", "conversation[receiver_id]"
+      assert_select "input[name=?]", "conversation[recipient_id]"
     end
   end
 end

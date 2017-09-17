@@ -29,10 +29,10 @@ RSpec.describe ConversationsController, type: :controller do
   # Conversation. As you add validations to Conversation, be sure to
   # adjust the attributes here as well.
   let!(:sender) { create(:user) }
-  let!(:receiver) { create(:user) }
-  let(:valid_attributes) { build( :conversation, sender: sender, receiver: receiver ).attributes }
+  let!(:recipient) { create(:user) }
+  let(:valid_attributes) { build( :conversation, sender: sender, recipient: recipient ).attributes }
 
-  let(:invalid_attributes) { { receiver_id: 0 } }
+  let(:invalid_attributes) { { recipient_id: 0 } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in

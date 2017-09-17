@@ -13,8 +13,8 @@ RSpec.describe "conversations/index", type: :view do
   it "renders a list of conversations" do
     render
     assert_select "tr>td", text: conversation1.sender.first_name, count: 1
-    assert_select "tr>td", text: conversation1.receiver.first_name, count: 1
+    assert_select "tr>td", text: conversation1.recipient.first_name, count: 1
     assert_select "tr>td", text: conversation2.sender.first_name, count: 1
-    assert_select "tr>td", text: conversation2.receiver.first_name, count: 1
+    assert_select "tr>td", text: conversation2.recipient.first_name, count: 1
   end
 end

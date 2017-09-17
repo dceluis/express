@@ -9,8 +9,8 @@ h1 New conversation
           li = message
 
   .field
-    = f.label :receiver_id
-    = f.text_field :receiver_id
+    = f.label :recipient_id
+    = f.text_field :recipient_id
   .actions = f.submit
 
 = link_to 'Back', user_conversations_path(current_user)
