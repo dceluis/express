@@ -293,7 +293,7 @@ Rails.application.config.sorcery.configure do |config|
     # manually handle how and when email is sent.
     # Default: `false`
     #
-    # user.activation_mailer_disabled =
+    user.activation_mailer_disabled = true
 
     # method to send email related
     # options: `:deliver_later`, `:deliver_now`, `:deliver`
