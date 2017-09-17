@@ -33,8 +33,6 @@ gem 'sorcery', '~> 0.11.0'
 gem 'pundit', '~> 1.1.0'
 gem 'slim', '~> 3.0'
 gem 'slim-rails'
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
