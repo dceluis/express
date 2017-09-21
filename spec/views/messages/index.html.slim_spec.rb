@@ -2,8 +2,9 @@ require 'rails_helper'
 
 RSpec.describe "messages/index", type: :view do
   let(:conversation) { build_stubbed(:conversation) }
-  let(:message1) { build_stubbed(:message, conversation: conversation) }
-  let(:message2) { build_stubbed(:message, conversation: conversation) }
+  let(:conversation_user) { conversation.conversation_users.first }
+  let!(:message1) { build_stubbed(:message, conversation_user: conversation_user, content: 'Hello world') }
+  let!(:message2) { build_stubbed(:message, conversation_user: conversation_user, content: 'Hello world') }
 
   before(:each) do
     assign(:conversation, conversation)

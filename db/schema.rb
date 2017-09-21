@@ -15,23 +15,27 @@ ActiveRecord::Schema.define(version: 20170916170944) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "conversations", force: :cascade do |t|
-    t.bigint "sender_id"
-    t.bigint "recipient_id"
+  create_table "conversation_users", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "conversation_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["recipient_id"], name: "index_conversations_on_recipient_id"
-    t.index ["sender_id"], name: "index_conversations_on_sender_id"
+    t.index ["conversation_id"], name: "index_conversation_users_on_conversation_id"
+    t.index ["user_id", "conversation_id"], name: "index_conversation_users_on_user_id_and_conversation_id", unique: true
+    t.index ["user_id"], name: "index_conversation_users_on_user_id"
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "messages", force: :cascade do |t|
-    t.bigint "conversation_id"
-    t.bigint "user_id"
+    t.bigint "conversation_user_id"
     t.string "content", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
-    t.index ["user_id"], name: "index_messages_on_user_id"
+    t.index ["conversation_user_id"], name: "index_messages_on_conversation_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -56,8 +60,7 @@ ActiveRecord::Schema.define(version: 20170916170944) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
   end
 
-  add_foreign_key "conversations", "users", column: "recipient_id"
-  add_foreign_key "conversations", "users", column: "sender_id"
-  add_foreign_key "messages", "conversations"
-  add_foreign_key "messages", "users"
+  add_foreign_key "conversation_users", "conversations"
+  add_foreign_key "conversation_users", "users"
+  add_foreign_key "messages", "conversation_users"
 end

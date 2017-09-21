@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :message do
-    conversation factory: :conversation
-    user factory: :user
+    conversation_user factory: :conversation_user
     content { Faker::Hipster.sentence }
   end
 end
