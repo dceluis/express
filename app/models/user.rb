@@ -1,8 +1,10 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
 
-  has_many :sent_conversations, -> { where(sender: self) }, class_name: 'Conversation', foreign_key: 'sender_id'
-  has_many :received_conversations, -> { where(recipient: self) }, class_name: 'Conversation', foreign_key: 'recipient_id'
+  has_many :conversation_users
+  has_many :conversations, through: :conversation_users
+
+  has_many :messages, through: :conversation_users
 
   validates :first_name, :last_name, presence: true
   validates :email, presence: true,
@@ -12,11 +14,16 @@ class User < ApplicationRecord
                       message: 'Must be a valid e-mail format.'
                     }
 
-  def conversations
-    Conversation.where("sender_id = ? OR recipient_id = ?", id, id )
-  end
-
   def full_name
     "#{first_name} #{last_name}"
+  end
+
+  def speak(content,conversation)
+    conversation_user = ConversationUser.joins(:user,:conversation).where( user: self, conversation: conversation ).group('id').first
+    if conversation_user
+      conversation_user.messages.create!(content: content)
+    else
+      nil
+    end
   end
 end

@@ -1,31 +1,30 @@
 class Conversation < ApplicationRecord
-  belongs_to :sender, class_name: 'User'
-  belongs_to :recipient, class_name: 'User'
-  has_many :messages
+  has_many :conversation_users, dependent: :destroy
+  has_many :users, through: :conversation_users
 
-  validates_uniqueness_of :sender_id, scope: :recipient_id
-  validate :is_not_a_duplicate?
+  has_many :messages, through: :conversation_users, dependent: :destroy
 
-  def title
-    "#{sender.first_name} - #{recipient.first_name}"
+  validates :conversation_users, presence: true, length: { is: 2, message: 'should be exactly 2' }
+  validate :not_a_duplicate?
+
+  def self.exactly_between(*users)
+    ids = users.pluck(:id).map(&:to_i)
+    Conversation.
+      joins(:users).
+      group('id').
+      where(users: { id: ids }).
+      having('count(*) = ?', users.length)
   end
 
-  def partner_name(user)
-    case user.id
-    when recipient_id
-      return sender.full_name
-    when sender_id
-      return recipient.full_name
-    else
-      return "Not found"
-    end
+  def title
+    users.map(&:full_name).join(' - ')
   end
 
   private
 
-  def is_not_a_duplicate?
-    if Conversation.find_by(sender_id: recipient_id, recipient_id: sender_id)
-      errors.add(:id,:already_exist, message: 'A conversation already exists between these users')
+  def not_a_duplicate?
+    if Conversation.exactly_between(*users).any?
+      errors.add(:base, :already_exist, message: 'A conversation already exists between these users')
       false
     else
       true
