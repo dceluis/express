@@ -1,5 +1,7 @@
 window.subscribeToChannel = (uuid) ->
-  App.conversation = App.cable.subscriptions.create {
+  this.App.conversation || (this.App.conversation = {})
+
+  App.conversation[uuid] = App.cable.subscriptions.create {
       channel: "ConversationChannel"
       uuid: uuid
     },
@@ -23,7 +25,7 @@ document.addEventListener 'submit', ((e) ->
     e.preventDefault()
     e.stopPropagation()
     input = e.target.querySelector('input[type=text]')
-    App.conversation.speak({ uuid: uuid, content: input.value })
+    App.conversation[uuid].speak({ content: input.value })
     input.value = ''
   return
 ), true

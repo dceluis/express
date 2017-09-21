@@ -1,5 +1,6 @@
 class ConversationChannel < ApplicationCable::Channel
   def subscribed
+    @conversation = Conversation.find(params['uuid'].to_i)
     stream_from "conversation_#{params['uuid']}_channel"
   end
 
@@ -8,7 +9,7 @@ class ConversationChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    message = current_user.speak( data['content'], Conversation.find( data['uuid'].to_i ) )
-    ActionCable.server.broadcast "conversation_#{data['uuid']}_channel", message: ApplicationController.render(partial: 'messages/show', locals: { message: message } )
+    message = current_user.speak( data['content'], @conversation )
+    ActionCable.server.broadcast "conversation_#{@conversation.id}_channel", message: ApplicationController.render(partial: 'messages/show', locals: { message: message } )
   end
 end

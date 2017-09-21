@@ -9,14 +9,10 @@ App.conversations = App.cable.subscriptions.create {
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-    console.log(data)
-    conversationChannels = App.cable.subscriptions.subscriptions.filter (s) ->
-      s.identifier.match /\"ConversationChannel\"/
+    for own uuid, subscription of App.conversation
+      subscription.unsubscribe
 
-    conversationChannels.forEach (c) ->
-      c.unsubscribe()
-
-    data.forEach (uuid) ->
+    for uuid in data
       subscribeToChannel uuid
 
   fetch: ->
