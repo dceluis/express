@@ -16,20 +16,6 @@ class ConversationsController < ApplicationController
   def edit
   end
 
-  # PATCH/PUT /conversations/1
-  # PATCH/PUT /conversations/1.json
-  # def update
-  #   respond_to do |format|
-  #     if @conversation.update(conversation_params)
-  #       format.html { redirect_to @conversation, notice: 'Conversation was successfully updated.' }
-  #       format.json { render :show, status: :ok, location: @conversation }
-  #     else
-  #       format.html { render :edit }
-  #       format.json { render json: @conversation.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
-
   # POST /conversations/1
   # POST /conversations/1.json
   def find_or_create

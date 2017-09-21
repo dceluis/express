@@ -18,12 +18,8 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
-  def speak(content,conversation)
-    conversation_user = ConversationUser.joins(:user,:conversation).where( user: self, conversation: conversation ).group('id').first
-    if conversation_user
-      conversation_user.messages.create!(content: content)
-    else
-      nil
-    end
+  def speak(content, conversation)
+    conversation_user = ConversationUser.joins(:user, :conversation).where( user: self, conversation: conversation ).group('id').first
+    conversation_user.messages.create!(content: content)
   end
 end

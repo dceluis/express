@@ -1,24 +1,29 @@
-App.conversation = App.cable.subscriptions.create "ConversationChannel",
-  connected: ->
-    # Called when the subscription is ready for use on the server
+window.subscribeToChannel = (uuid) ->
+  App.conversation = App.cable.subscriptions.create {
+      channel: "ConversationChannel"
+      uuid: uuid
+    },
+    connected: ->
+      # Called when the subscription is ready for use on the server
 
-  disconnected: ->
-    # Called when the subscription has been terminated by the server
+    disconnected: ->
+      # Called when the subscription has been terminated by the server
 
-  received: (data) ->
-    row = document.createElement('tr')
-    row.innerHTML = data['message']
-    document.getElementById('conversation-messages').appendChild(row)
+    received: (data) ->
+      rowContainer = document.createElement('tbody')
+      rowContainer.innerHTML = data['message']
+      document.getElementById('conversation-messages').appendChild(rowContainer.firstElementChild)
 
-  speak: (data) ->
-    @perform 'speak', data
+    speak: (data) ->
+      @perform 'speak', data
 
 document.addEventListener 'submit', ((e) ->
   if e.target.dataset.behavior == 'submit-message'
+    uuid = window.location.pathname.match(/conversations\/\d+\/messages/)[0].match(/\d+/)[0]
     e.preventDefault()
     e.stopPropagation()
     input = e.target.querySelector('input[type=text]')
-    App.conversation.speak({ uuid: e.target.dataset.uuid, content: input.value })
+    App.conversation.speak({ uuid: uuid, content: input.value })
     input.value = ''
   return
 ), true

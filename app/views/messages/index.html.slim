@@ -1,16 +1,22 @@
 h1= @conversation.title
 
-table
-  thead
-    tr
-      th User
-      th Content
-
-  tbody#conversation-messages
-    - @messages.each do |message|
-      tr
-        td = message.user.first_name
-        td = message.content
+.bx--responsive-table-container data-responsive-table="" 
+  table.bx--responsive-table.bx--responsive-table--static-size data-table="" 
+    thead.bx--table-head
+      tr.bx--table-row
+        th.bx--table-header.bx--table-sort data-event="sort" tabindex="0" 
+            span User
+            svg.bx--table-sort__svg fill-rule="evenodd" height="5" viewbox=("0 0 10 5") width="10" 
+              path d=("M10 0L5 5 0 0z") 
+        th.bx--table-header.bx--table-sort data-event="sort" tabindex="0" 
+            span Content
+            svg.bx--table-sort__svg fill-rule="evenodd" height="5" viewbox=("0 0 10 5") width="10" 
+              path d=("M10 0L5 5 0 0z") 
+    tbody.bx--table-body#conversation-messages
+      - @messages.each do |message|
+        tr.bx--table-row.bx--parent-row data-parent-row="" tabindex="0" 
+          td = message.user.first_name
+          td = message.content
 
 br
 = form_for [@conversation, @message], remote: true, data: { behavior: 'submit-message', uuid: @conversation.id } do |f|
