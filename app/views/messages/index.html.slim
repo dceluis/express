@@ -1,23 +1,20 @@
-h1 Listing messages
+h1= @conversation.title
 
 table
   thead
     tr
       th User
       th Content
-      th
-      th
-      th
 
-  tbody
+  tbody#conversation-messages
     - @messages.each do |message|
       tr
         td = message.user.first_name
         td = message.content
-        td = link_to 'Show', message
-        td = link_to 'Edit', edit_message_path(message)
-        td = link_to 'Destroy', message, data: { confirm: 'Are you sure?' }, method: :delete
 
 br
-
-= link_to 'New Message', new_conversation_message_path(@conversation)
+= form_for [@conversation, @message], remote: true, data: { behavior: 'submit-message', uuid: @conversation.id } do |f|
+  .field
+    = f.label :content
+    = f.text_field :content
+  .actions = f.submit
