@@ -1,2 +1,4 @@
-li.left-nav-list__item data-interior-left-nav-item="" role="menuitem" tabindex="0" 
-  = link_to user.full_name, conversation_path(user.id), remote: true, method: :post, class: 'left-nav-list__item-link'
+li.left-nav-list__item data-interior-left-nav-item="" role="menuitem" tabindex="0"
+  = link_to conversation_path(user.id), remote: true, method: :post, class: 'left-nav-list__item-link' do
+    = user.full_name
+    .bx--appearance-online-icon data-user-appearance="#{user.id}" style="display: none;"

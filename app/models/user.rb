@@ -18,6 +18,20 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
+  def appear
+    $redis.sadd("online", id)
+    AppearanceBroadcastJob.perform_later online
+  end
+
+  def disappear
+    $redis.srem("online", id)
+    AppearanceBroadcastJob.perform_later online
+  end
+
+  def online
+    $redis.smembers("online")
+  end
+
   def speak(content, conversation)
     conversation_user = ConversationUser.joins(:user, :conversation).where( user: self, conversation: conversation ).group('id').first
     conversation_user.messages.create!(content: content)
