@@ -6,7 +6,11 @@ class MessagesController < ApplicationController
   # GET /messages.json
   def index
     @messages = @conversation.messages
-    @message  = Message.new
+
+    conversation_user = ConversationUser.find_by(conversation: @conversation, user: current_user)
+    @message  = Message.new(conversation_user: conversation_user)
+
+    authorize @message
   end
 
   private
