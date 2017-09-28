@@ -53,6 +53,7 @@ end
 
 group :test do
   gem 'codecov', require: false
+  gem 'pundit-matchers'
 end
 
 group :development do
