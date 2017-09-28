@@ -14,6 +14,3 @@ App.appearance = App.cable.subscriptions.create {
         appearance && (appearance.style = 'display: none;')
       else
         appearance && (appearance.style = '')
-
-document.addEventListener 'turbolinks:load', ->
-  App.appearance.perform('appear')

@@ -20,16 +20,20 @@ class User < ApplicationRecord
 
   def appear
     $redis.sadd("online", id)
-    AppearanceBroadcastJob.perform_later online
+    AppearanceBroadcastJob.perform_later User.online
   end
 
   def disappear
     $redis.srem("online", id)
-    AppearanceBroadcastJob.perform_later online
+    AppearanceBroadcastJob.perform_later User.online
   end
 
-  def online
+  def self.online
     $redis.smembers("online")
+  end
+
+  def online?
+    !!(User.online.index id.to_s)
   end
 
   def speak(content, conversation)
