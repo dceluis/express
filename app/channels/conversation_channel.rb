@@ -10,7 +10,6 @@ class ConversationChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    message = current_user.speak( data['content'], @conversation )
-    ActionCable.server.broadcast "conversation_#{@conversation.id}_channel", message: ApplicationController.render(partial: 'messages/show', locals: { message: message } )
+    current_user.speak( data['content'], @conversation )
   end
 end
