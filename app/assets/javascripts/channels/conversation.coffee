@@ -13,7 +13,7 @@ window.subscribeToChannel = (uuid) ->
 
     received: (data) ->
       rowContainer = document.createElement('tbody')
-      rowContainer.innerHTML = data['message']
+      rowContainer.innerHTML = data['partial']
       document.getElementById('conversation-messages').appendChild(rowContainer.firstElementChild)
 
     speak: (data) ->
