@@ -1,4 +1,5 @@
 class ConversationsController < ApplicationController
+  before_action :require_login
   before_action :set_conversation, only: [:show, :edit, :update]
 
   # GET /conversations
