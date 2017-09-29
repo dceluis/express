@@ -10,7 +10,7 @@ header.bx--detail-page-header.bx--detail-page-header--no-tabs data-detail-page-h
     .bx--detail-page-header-title-container
       .bx--detail-page-header-icon-container
         - if @other.avatar.file
-          img.avatar src="/#{@other.avatar.store_path}#{@other.avatar_identifier}" alt="Avatar"/
+          img.avatar src="#{@other.avatar.url}" alt="Avatar"/
         - else
           svg height="24" viewbox=("0 0 24 24") width="24" 
             path d=("M0 0h24v24H0z") fill="#D8D8D8" fill-rule="evenodd" /
