@@ -25,3 +25,5 @@ yarn.lock
 # Ignore rspec local failing examples
 /spec/examples.txt
 
+# Ignore CarrierWave local uploads
+/public/uploads
