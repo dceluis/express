@@ -18,9 +18,9 @@ RSpec.describe ConversationsController, type: :routing do
       expect(get: '/conversations/1/edit').to route_to('conversations#edit', id: '1')
     end
 
-    it 'routes to #create' do
-      expect(post: '/conversations').to route_to('conversations#create')
-    end
+    # it 'routes to #create' do
+    #   expect(post: '/conversations').to route_to('conversations#create')
+    # end
 
     it 'routes to #update via PUT' do
       expect(put: '/conversations/1').to route_to('conversations#update', id: '1')
