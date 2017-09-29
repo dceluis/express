@@ -8,9 +8,10 @@ class MessagesController < ApplicationController
     @messages = @conversation.messages
 
     conversation_user = ConversationUser.find_by(conversation: @conversation, user: current_user)
-    @message  = Message.new(conversation_user: conversation_user)
+    @message = Message.new(conversation_user: conversation_user)
 
     authorize @message
+    @other = @conversation.users.find_by('users.id != ?', current_user.id)
   end
 
   private
