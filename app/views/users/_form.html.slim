@@ -24,4 +24,11 @@
           = f.label :password, class: 'bx--label'
           = f.password_field :password, class: 'bx--text-input'
         .bx--form-item
+          strong.bx--label= 'Account photo'
+          p.bx--label-description= 'only .jpg and .png files. 500kb max file size.'
+          .bx--file data-file=''
+            = f.label :avatar, class: 'bx--file-btn bx--btn bx--btn--secondary', role: 'button', tabindex: 0
+            = f.file_field :avatar, accept: 'image/jpeg,image/png', class: 'bx--file-input', data: { file_uploader: '', target: "[data-file-container]" }
+            .bx--file-container data-file-container=''
+        .bx--form-item
           = f.submit class: 'bx--btn bx--btn--primary'

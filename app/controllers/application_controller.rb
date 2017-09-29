@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   add_flash_types :success, :info, :warning, :error
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
-  
+
   private
 
   def not_authenticated

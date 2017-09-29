@@ -1,5 +1,8 @@
+require 'carrierwave/orm/activerecord'
+
 class User < ApplicationRecord
   authenticates_with_sorcery!
+  mount_uploader :avatar, AvatarUploader
 
   has_many :conversation_users
   has_many :conversations, through: :conversation_users
