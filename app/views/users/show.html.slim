@@ -24,7 +24,7 @@ article.bx--card aria-labelledby="card-title-1" tabindex="0"
       figure.bx--about__icon
         img.bx--about__icon--img.avatar alt="" src="#{@user.avatar.url}" /
       header.bx--about__title
-        p#card-title-1.bx--about__title--name.bx--type-gamma= @user.first_name
+        p#card-title-1.bx--about__title--name.bx--type-gamma= @user.full_name
         a.bx--link.bx--about__title--link href=""= @user.email
   .bx--card-footer
     .bx--card-footer__app-status
