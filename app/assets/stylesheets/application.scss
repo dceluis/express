@@ -18,6 +18,7 @@
 body {
   font-family: 'Roboto', sans-serif;
   background-color: $ui-01;
+  padding-top: 5.625rem;
 }
 
 main{
@@ -27,6 +28,14 @@ main{
 .container {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
+}
+
+.bx--detail-page-header--no-tabs{
+  top: 5.625rem;
+}
+
+.messages-index{
+  margin-top: 5.625rem;
 }
 
 @import 'modules/index.scss';
