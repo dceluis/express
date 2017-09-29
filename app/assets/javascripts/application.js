@@ -14,3 +14,12 @@
 //= require turbolinks
 //= require carbon-components/scripts/carbon-components.min.js
 //= require_tree .
+
+CarbonComponents.settings.disableAutoInit = true;
+
+document.addEventListener('turbolinks:load', function () {
+  CarbonComponents.InteriorLeftNav.init();
+  CarbonComponents.DataTable.init();
+  CarbonComponents.DetailPageHeader.init();
+  CarbonComponents.FileUploader.init();
+});
