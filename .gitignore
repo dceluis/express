@@ -27,3 +27,6 @@ yarn.lock
 
 # Ignore CarrierWave local uploads
 /public/uploads
+
+$ Ignore Redis dumpfile
+dump.rdb
