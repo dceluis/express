@@ -22,4 +22,5 @@ document.addEventListener('turbolinks:load', function () {
   CarbonComponents.DataTable.init();
   CarbonComponents.DetailPageHeader.init();
   CarbonComponents.FileUploader.init();
+  CarbonComponents.OverflowMenu.init():
 });
