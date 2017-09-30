@@ -10,7 +10,8 @@ App.conversations = App.cable.subscriptions.create {
 
   received: (data) ->
     for own uuid, subscription of App.conversation
-      subscription.unsubscribe
+      App.cable.subscriptions.remove(subscription)
+      delete App.conversation[uuid]
 
     for uuid in data
       subscribeToChannel uuid

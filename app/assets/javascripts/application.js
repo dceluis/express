@@ -13,4 +13,3 @@
 //= require webcomponentsjs/webcomponents-lite
 //= require rails-ujs
 //= require turbolinks
-//= require cable
