@@ -2,9 +2,13 @@
   "name": "Express",
   "private": true,
   "dependencies": {
+    "@rails/webpacker": "^3.0.1",
     "carbon-components": "^7.22.1"
   },
   "version": "0.1.0",
   "repository": "https://github.com/sanchez2210/express.git",
-  "author": "Luis Felipe Sanchez <sanchezhorna@outlook.com>"
+  "author": "Luis Felipe Sanchez <sanchezhorna@outlook.com>",
+  "devDependencies": {
+    "webpack-dev-server": "^2.9.1"
+  }
 }

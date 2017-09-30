@@ -16,6 +16,8 @@
 /node_modules
 yarn-error.log
 yarn.lock
+/public/packs
+/public/packs-test
 
 .byebug_history
 
