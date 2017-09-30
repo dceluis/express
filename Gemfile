@@ -48,6 +48,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.6'
   gem 'selenium-webdriver'
   gem 'spring-commands-rspec'
+  gem 'webpacker', '~> 3.0'
 end
 
 group :test do
