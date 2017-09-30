@@ -32,6 +32,7 @@ gem 'redis', '~> 3.0'
 gem 'slim', '~> 3.0'
 gem 'slim-rails'
 gem 'sorcery', '~> 0.11.0'
+gem 'webpacker', '~> 3.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -48,7 +49,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.6'
   gem 'selenium-webdriver'
   gem 'spring-commands-rspec'
-  gem 'webpacker', '~> 3.0'
 end
 
 group :test do
