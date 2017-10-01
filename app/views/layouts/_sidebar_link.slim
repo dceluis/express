@@ -2,3 +2,4 @@ li.left-nav-list__item data-interior-left-nav-item="" role="menuitem" tabindex="
   = link_to conversation_path(user.id), remote: true, method: :post, class: 'left-nav-list__item-link' do
     = user.full_name
     .bx--appearance-online-icon data-user-appearance="#{user.id}" style="#{ user.online? ? '' : 'display: none;' }"
+    span.bx--tag.bx--tag--small.bx--tag--beta
