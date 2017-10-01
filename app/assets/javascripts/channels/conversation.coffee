@@ -2,7 +2,7 @@ window.subscribeToChannel = (uuid) ->
   this.App.conversation || (this.App.conversation = {})
 
   App.conversation[uuid] = App.cable.subscriptions.create {
-      channel: "ConversationChannel"
+      channel: "ConversationChannel",
       uuid: uuid
     },
     connected: ->
