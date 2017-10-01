@@ -4,7 +4,6 @@
   "dependencies": {
     "@rails/webpacker": "^3.0.1",
     "@webcomponents/webcomponentsjs": "webcomponents/webcomponentsjs",
-    "babel-plugin-transform-custom-element-classes": "^0.1.0",
     "carbon-components": "^7.22.1"
   },
   "version": "0.1.0",
