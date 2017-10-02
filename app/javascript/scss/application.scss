@@ -13,7 +13,8 @@
  *= require_self
  */
 
-@import 'carbon-components/scss/globals/scss/styles.scss';
+@import 'node_modules/carbon-components/scss/globals/scss/styles.scss';
+
 
 body {
   font-family: 'Roboto', sans-serif;
