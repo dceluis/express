@@ -3,8 +3,6 @@ FactoryGirl.define do
     transient do
       users_count 2
     end
-    users do
-      create_list(:user, users_count)
-    end
+    users { create_list(:user, users_count) }
   end
 end
