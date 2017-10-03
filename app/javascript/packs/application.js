@@ -8,19 +8,8 @@
 // layout file, like app/views/layouts/application.html.erb
 
 import '../scss/application.scss'
+import '@webcomponents/webcomponentsjs/webcomponents-lite'
+import '../src/components.js'
 
 console.log('Hello World from Webpacker')
 
-import { InteriorLeftNav } from 'carbon-components'
-import { DataTable } from 'carbon-components'
-import { DetailPageHeader } from 'carbon-components'
-import { FileUploader } from 'carbon-components'
-import { OverflowMenu } from 'carbon-components'
-
-document.addEventListener('turbolinks:load', function () {
-  InteriorLeftNav.init();
-  DataTable.init();
-  DetailPageHeader.init();
-  FileUploader.init();
-  OverflowMenu.init();
-});

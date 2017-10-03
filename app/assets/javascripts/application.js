@@ -10,7 +10,5 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require @webcomponents/webcomponentsjs/custom-elements-es5-adapter
-//= require @webcomponents/webcomponentsjs/webcomponents-lite
 //= require rails-ujs
 //= require turbolinks
