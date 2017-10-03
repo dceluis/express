@@ -24,7 +24,7 @@ class Conversation < ApplicationRecord
 
   def not_a_duplicate?
     if Conversation.exactly_between(*users).any?
-      errors.add(:base, :already_exist, message: 'A conversation already exists between these users')
+      errors.add(:base, 'A conversation already exists between these users')
       false
     else
       true
