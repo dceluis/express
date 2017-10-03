@@ -1,4 +1,6 @@
-.bx--tag--small{
+message-tag {
+  @extend .bx--tag;
+  @extend .bx--tag--beta;
   font-size: rem(9px);
   height: rem(12px);
   padding: 0 rem(6px);
