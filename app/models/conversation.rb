@@ -17,7 +17,7 @@ class Conversation < ApplicationRecord
   end
 
   def title
-    users.map(&:full_name).join(' - ')
+    Conversation.includes(:users).find(id).users.map(&:full_name).join(' - ')
   end
 
   private

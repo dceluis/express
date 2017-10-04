@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    @messages = @conversation.messages
+    @messages = Message.where( conversation_user: @conversation.conversation_users.pluck(:id) ).includes(:user)
 
     conversation_user = ConversationUser.find_by(conversation: @conversation, user: current_user)
     @message = Message.new(conversation_user: conversation_user)
