@@ -6,7 +6,7 @@ before_script:
   - bundle exec rake db:setup
 install: 
   - npm install
-  - bundle exec rake assets:precompile
   - bundle install --jobs=3 --retry=3
 script: 
+  - bundle exec rake assets:precompile
   - bundle exec rake
