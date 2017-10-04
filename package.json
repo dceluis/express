@@ -5,13 +5,13 @@
     "@polymer/polymer": "^3.0.0-pre.1",
     "@rails/webpacker": "^3.0.1",
     "@webcomponents/webcomponentsjs": "^1.0.14",
-    "carbon-components": "^7.22.1"
+    "carbon-components": "^7.22.1",
+    "babel-minify-webpack-plugin": "^0.2.0"
   },
   "version": "0.1.0",
   "repository": "https://github.com/sanchez2210/express.git",
   "author": "Luis Felipe Sanchez <sanchezhorna@outlook.com>",
   "devDependencies": {
-    "babel-minify-webpack-plugin": "^0.2.0",
     "webpack-dev-server": "^2.9.1"
   }
 }
