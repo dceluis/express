@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171003082435) do
+ActiveRecord::Schema.define(version: 20171003183315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 20171003082435) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "events", force: :cascade do |t|
+    t.bigint "story_id", null: false
+    t.string "eventable_type"
+    t.bigint "eventable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["eventable_type", "eventable_id"], name: "index_events_on_eventable_type_and_eventable_id"
+    t.index ["story_id"], name: "index_events_on_story_id"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.bigint "conversation_user_id"
     t.string "content", null: false
@@ -39,11 +49,20 @@ ActiveRecord::Schema.define(version: 20171003082435) do
   end
 
   create_table "notifications", force: :cascade do |t|
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
+    t.bigint "story_id", null: false
     t.string "state", default: "active", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["story_id"], name: "index_notifications_on_story_id"
     t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
+  create_table "stories", force: :cascade do |t|
+    t.string "type", null: false
+    t.integer "events_count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -71,6 +90,8 @@ ActiveRecord::Schema.define(version: 20171003082435) do
 
   add_foreign_key "conversation_users", "conversations"
   add_foreign_key "conversation_users", "users"
+  add_foreign_key "events", "stories"
   add_foreign_key "messages", "conversation_users"
+  add_foreign_key "notifications", "stories"
   add_foreign_key "notifications", "users"
 end
