@@ -1,12 +1,12 @@
 import './components/message-tag.js'
 
-// import { InteriorLeftNav } from 'carbon-components'
-// import { DataTable } from 'carbon-components'
-// import { DetailPageHeader } from 'carbon-components'
-// import { FileUploader } from 'carbon-components'
-// import { OverflowMenu } from 'carbon-components'
+// import { InteriorLeftNav } from 'carbon-components/umd'
+// import { DataTable } from 'carbon-components/umd'
+// import { DetailPageHeader } from 'carbon-components/umd'
+// import { FileUploader } from 'carbon-components/umd'
+// import { OverflowMenu } from 'carbon-components/umd'
 
-// document.addEventListener('turbolinks:load', function () {
+// document.addEventListener('turbolinks:load', () => {
 //   InteriorLeftNav.init();
 //   DataTable.init();
 //   DetailPageHeader.init();
