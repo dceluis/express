@@ -50,7 +50,7 @@ section.messages-index
               svg.bx--table-sort__svg fill-rule="evenodd" height="5" viewbox=("0 0 10 5") width="10" 
                 path d=("M10 0L5 5 0 0z") 
       tbody.bx--table-body#conversation-messages
-        - @messages.each do |message|
+        - @messages.reverse_each do |message|
           tr.bx--table-row.bx--parent-row data-parent-row="" tabindex="0" 
             td = message.user.first_name
             td = message.content
