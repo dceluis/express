@@ -8,7 +8,6 @@
 // layout file, like app/views/layouts/application.html.erb
 
 import '../scss/application.scss'
-import '@webcomponents/webcomponentsjs/webcomponents-lite'
 import '../src/components.js'
 
 console.log('Hello World from Webpacker')
