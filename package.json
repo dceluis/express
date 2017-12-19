@@ -4,7 +4,6 @@
   "dependencies": {
     "@rails/webpacker": "^3.0.1",
     "babel-minify-webpack-plugin": "^0.2.0",
-    "carbon-components": "^7.22.1",
     "punchbox-js": "^0.1.0"
   },
   "version": "0.1.0",
