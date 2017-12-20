@@ -1,6 +1,5 @@
-import Vue from 'vue'
+import Vue from 'vue/dist/vue.esm'
 import Punchbox from 'punchbox-js'
-import App from './components/app.vue'
 import VueResource from 'vue-resource'
 import TurbolinksAdapter from 'vue-turbolinks'
 
@@ -8,12 +7,27 @@ Vue.use(VueResource)
 Vue.use(TurbolinksAdapter)
 
 Punchbox.on('Messages', {
-  index: function (){
+  index: () => {
 
-    document.body.appendChild(document.createElement('hello'))
+    var element = document.queryBehavior('submit-message')
+
     const app = new Vue({
-      render: h => h(App)
-    }).$mount('hello')
+      el: element,
+      data: () => {
+        return {
+          content: '',
+          uuid: element.dataset.uuid
+        }
+      },
+      methods: {
+        submit: function(e) {
+          e.preventDefault()
+
+          App.conversation[this.uuid].speak({ content: this.content })
+          this.content = ''
+        }
+      }
+    })
 
     console.log(app)
   }
