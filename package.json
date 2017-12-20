@@ -2,14 +2,16 @@
   "name": "Express",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "^3.0.1",
+    "@rails/webpacker": "^3.2.0",
+    "carbon-components": "^7.22.1",
     "babel-minify-webpack-plugin": "^0.2.0",
-    "punchbox-js": "^0.1.0"
+    "punchbox-js": "^0.1.0",
+    "vue": "^2.5.13",
+    "vue-loader": "^13.6.0",
+    "vue-template-compiler": "^2.5.13",
+    "vue-turbolinks": "^2.0.0"
   },
   "version": "0.1.0",
   "repository": "https://github.com/sanchez2210/express.git",
-  "author": "Luis Felipe Sanchez <sanchezhorna@outlook.com>",
-  "devDependencies": {
-    "webpack-dev-server": "^2.9.1"
-  }
+  "author": "Luis Felipe Sanchez <sanchezhorna@outlook.com>"
 }
