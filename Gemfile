@@ -28,7 +28,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem 'punchbox', git: 'https://github.com/sanchez2210/punchbox'
+gem 'punchbox', github: 'kieraneglin/punchbox'
 gem 'pundit', '~> 1.1.0'
 gem 'redis', '~> 3.0'
 gem 'skylight'

@@ -1,6 +1,6 @@
 GIT
-  remote: https://github.com/sanchez2210/punchbox
-  revision: 9b8da57f48dbd5a990f69adeddad4f4abc8f03f4
+  remote: https://github.com/kieraneglin/punchbox.git
+  revision: 08e2fe0222ff532f72a94aa9ca68fbb57bedbe93
   specs:
     punchbox (1.0.4)
       rails (>= 4.0.0)
