@@ -56,8 +56,11 @@ section.messages-index
             td = message.content
 
   br
-  = form_for [@conversation, @message], remote: true, data: { behavior: 'submit-message', uuid: @conversation.id } do |f|
+  = form_for [@conversation, @message], remote: true,
+    data: { behavior: 'submit-message', uuid: @conversation.id },
+    html: { '@submit' => 'submit' } do |f|
+
     .field
       = f.label :content
-      = f.text_field :content
+      = f.text_field :content, 'v-model' => 'content'
     .actions = f.submit
