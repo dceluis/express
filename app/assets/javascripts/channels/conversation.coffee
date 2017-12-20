@@ -18,14 +18,3 @@ window.subscribeToChannel = (uuid) ->
 
     speak: (data) ->
       @perform 'speak', data
-
-document.addEventListener 'submit', ((e) ->
-  if e.target.dataset.behavior == 'submit-message'
-    uuid = window.location.pathname.match(/conversations\/\d+\/messages/)[0].match(/\d+/)[0]
-    e.preventDefault()
-    e.stopPropagation()
-    input = e.target.querySelector('input[type=text]')
-    App.conversation[uuid].speak({ content: input.value })
-    input.value = ''
-  return
-), true
