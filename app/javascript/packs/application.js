@@ -12,7 +12,9 @@ require('semantic-ui-css/semantic.js')
 
 import '../scss/application.scss'
 
-import '../src/messages.js'
+window.$ = window.jQuery = require('jquery')
+
+require('semantic-ui-css/semantic.js')
 
 document.queryBehavior = (behavior) => {
   return document.querySelector(`[data-behavior=${behavior}]`)
