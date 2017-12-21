@@ -1,4 +1,4 @@
-window.subscribeToChannel = (uuid) => {
+window.subscribeToChannel = function (uuid) {
   this.App.conversation || (this.App.conversation = {})
 
   App.conversation[uuid] = App.cable.subscriptions.create({
