@@ -1,59 +1,14 @@
-header.bx--detail-page-header.bx--detail-page-header--no-tabs data-detail-page-header="" 
-  .bx--detail-page-header-content
-    .bx--breadcrumb
-      .bx--breadcrumb-item
-        a.bx--link href="#"  Breadcrumb 1
-      .bx--breadcrumb-item
-        a.bx--link href="#"  Breadcrumb 2
-      .bx--breadcrumb-item
-        a.bx--link href="#"  Breadcrumb 3
-    .bx--detail-page-header-title-container
-      .bx--detail-page-header-icon-container
-        - if @other.avatar.file
-          img.avatar src="#{@other.avatar.url}" alt="Avatar"/
-        - else
-          svg height="24" viewbox=("0 0 24 24") width="24" 
-            path d=("M0 0h24v24H0z") fill="#D8D8D8" fill-rule="evenodd" /
-      h1.bx--detail-page-header-title= @other.full_name
-      .bx--detail-page-header-status-container
-        .bx--detail-page-header-status-icon
-        span.bx--detail-page-header-status-text Running
-  .bx--detail-page-header-menu
-    .bx--overflow-menu aria-label=("Overflow menu description") data-overflow-menu="" tabindex="0" 
-      svg.bx--overflow-menu__icon fill-rule="evenodd" height="20" viewbox=("0 0 4 20") width="4" 
-        circle cx="2" cy="2" r="2"
-        circle cx="2" cy="10" r="2"
-        circle cx="2" cy="18" r="2"
-      ul.bx--overflow-menu-options.bx--overflow-menu--flip
-        li.bx--overflow-menu-options__option
-          button.bx--overflow-menu-options__btn Stop app
-        li.bx--overflow-menu-options__option
-          button.bx--overflow-menu-options__btn Restart app
-        li.bx--overflow-menu-options__option
-          button.bx--overflow-menu-options__btn Rename app
-        li.bx--overflow-menu-options__option
-          button.bx--overflow-menu-options__btn Edit routes and access
-        li.bx--overflow-menu-options__option.bx--overflow-menu-options__option--danger
-          button.bx--overflow-menu-options__btn Delete app
+header
+  - if @other.avatar.file
+    img.avatar src="#{@other.avatar.url}" alt="Avatar"/
+  h1= @other.full_name
 
 section.messages-index
-  .bx--responsive-table-container data-responsive-table="" 
-    table.bx--responsive-table.bx--responsive-table--static-size data-table="" 
-      thead.bx--table-head
-        tr.bx--table-row
-          th.bx--table-header.bx--table-sort data-event="sort" tabindex="0" 
-              span User
-              svg.bx--table-sort__svg fill-rule="evenodd" height="5" viewbox=("0 0 10 5") width="10" 
-                path d=("M10 0L5 5 0 0z") 
-          th.bx--table-header.bx--table-sort data-event="sort" tabindex="0" 
-              span Content
-              svg.bx--table-sort__svg fill-rule="evenodd" height="5" viewbox=("0 0 10 5") width="10" 
-                path d=("M10 0L5 5 0 0z") 
-      tbody.bx--table-body#conversation-messages
-        - @messages.reverse_each do |message|
-          tr.bx--table-row.bx--parent-row data-parent-row="" tabindex="0" 
-            td = message.user.first_name
-            td = message.content
+  div#conversation-messages
+    - @messages.reverse_each do |message|
+      div
+        span= message.user.first_name
+        span= message.content
 
   br
   = form_for [@conversation, @message], remote: true,
