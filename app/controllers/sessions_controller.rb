@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 
   def create
     login(params[:email], params[:password], params[:remember_me])
-    redirect_to conversations_url
+    redirect_to conversations_url, success: 'You have successfully logged in'
   end
 
   def destroy
