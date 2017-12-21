@@ -14,6 +14,3 @@ import '../src/messages.js'
 document.queryBehavior = (behavior) => {
   return document.querySelector(`[data-behavior=${behavior}]`)
 }
-
-console.log('Hello World from Webpacker')
-
