@@ -17,3 +17,6 @@ require('semantic-ui-css/semantic.js')
 document.queryBehavior = (behavior) => {
   return document.querySelector(`[data-behavior=${behavior}]`)
 }
+
+require('../src/messages.js')
+
