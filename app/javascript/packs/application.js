@@ -8,8 +8,6 @@
 // layout file, like app/views/layouts/application.html.erb
 
 require('semantic-ui-css/semantic.css')
-require('semantic-ui-css/semantic.js')
-
 import '../scss/application.scss'
 
 window.$ = window.jQuery = require('jquery')
