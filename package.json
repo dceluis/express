@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker": "^3.2.0",
+    "actioncable": "^5.1.4",
     "babel-minify-webpack-plugin": "^0.2.0",
     "postcss-url": "^7.3.0",
     "punchbox-js": "^0.1.0",
