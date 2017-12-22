@@ -11,11 +11,7 @@ class Message < ApplicationRecord
   validates :user, presence: true
   validates :content, presence: true, length: { within: 1..2000 }
 
-  after_create :broadcast_self
-
-  private
-
-  def broadcast_self
+  def broadcast
     MessageBroadcastJob.perform_now self
   end
 end

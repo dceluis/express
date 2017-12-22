@@ -10,6 +10,8 @@ class ConversationChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    current_user.speak( data['content'], @conversation )
+    message = current_user.speak( data['content'], @conversation )
+
+    message.broadcast
   end
 end
