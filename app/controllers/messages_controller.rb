@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
     @messages = Message.where( conversation_user: @conversation.conversation_users.pluck(:id) ).includes(:user).order('created_at DESC').page(1)
 
     conversation_user = ConversationUser.find_by(conversation: @conversation, user: current_user)
-    @message = Message.new(conversation_user: conversation_user)
+    @message = conversation_user.messages.build
 
     authorize @message
     @other = @conversation.users.find_by('users.id != ?', current_user.id)
