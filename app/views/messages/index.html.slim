@@ -8,6 +8,10 @@ section.messages-index
     data: { behavior: 'messages-index', uuid: @conversation.id,
       messages: @messages.to_json(only: [:user, :content]) } do
 
+    div v-for='message in messages'
+      span
+        | {{ message.content }}
+
   br
   = form_for [@conversation, @message], remote: true,
     data: { behavior: 'submit-message', uuid: @conversation.id },

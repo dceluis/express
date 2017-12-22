@@ -12,7 +12,7 @@ window.subscribeToChannel = function (uuid) {
     received: function (data)  {
       rowContainer = document.createElement('tbody')
       rowContainer.innerHTML = data['partial']
-      document.getElementById('conversation-messages').appendChild(rowContainer.firstElementChild)
+      document.queryBehavior('messages-index').appendChild(rowContainer.firstElementChild)
     },
 
     speak: function (data) {
