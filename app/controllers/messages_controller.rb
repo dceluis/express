@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    @messages = Message.where( conversation_user: @conversation.conversation_users.pluck(:id) ).includes(:user).order('created_at DESC').page(1)
+    @messages = @conversation.messages.includes(:user).order('created_at DESC').page(1)
 
     conversation_user = ConversationUser.find_by(conversation: @conversation, user: current_user)
     @message = conversation_user.messages.build
@@ -20,7 +20,6 @@ class MessagesController < ApplicationController
     @conversation = Conversation.find(params[:conversation_id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def message_params
     params.require(:message).permit(:content)
   end
