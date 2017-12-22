@@ -4,7 +4,6 @@ rvm:
   - 2.4.1
 before_script:
   - bin/setup
-  - NODE_ENV=production bin/webpack
   - bundle exec rake assets:precompile
-script: 
+script:
   - bundle exec rake
