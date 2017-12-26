@@ -1,6 +1,6 @@
 class ConversationChannel < ApplicationCable::Channel
   def subscribed
-    @conversation = Conversation.joins(:users).where(id: params['uuid'].to_i, users: { id: [current_user.id] }).first
+    @conversation = Conversation.joins(:users).where(id: params['id'].to_i, users: { id: [current_user.id] }).first
     reject unless @conversation
     stream_from "conversation_#{@conversation.id}_channel"
   end

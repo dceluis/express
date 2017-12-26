@@ -5,7 +5,7 @@ header
 
 section.messages-index
   = content_tag :div,
-    data: { behavior: 'messages-index', uuid: @conversation.id,
+    data: { behavior: 'messages-index', id: @conversation.id,
       messages: @messages.to_json(only: [:user, :content]) } do
 
     div v-for='message in messages'

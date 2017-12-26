@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    @messages = @conversation.messages.includes(:user).order('created_at DESC').page(1)
+    @messages = @conversation.messages.includes(:user).order('created_at ASC').page(1)
 
     conversation_user = ConversationUser.find_by(conversation: @conversation, user: current_user)
     @message = conversation_user.messages.build

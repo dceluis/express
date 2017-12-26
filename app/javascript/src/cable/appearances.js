@@ -1,4 +1,7 @@
-App.appearance = App.cable.subscriptions.create({
+import { Consumer } from './cable'
+import { store } from '../store'
+
+export const appearancesSubscription = Consumer.subscriptions.create({
   channel: "AppearanceChannel"
 },{
   connected: function () {},
@@ -6,7 +9,7 @@ App.appearance = App.cable.subscriptions.create({
   disconnected: function () {},
 
   received: function (data) {
-    appearances = document.querySelectorAll("[data-user-appearance]")
+    var appearances = document.querySelectorAll("[data-user-appearance]")
 
     for(var i = 0 ; i < appearances.length ; i++ ) {
       let appearance = appearances[i];

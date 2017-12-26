@@ -16,6 +16,8 @@ Punchbox.on('Messages', {
     var formElem = document.queryBehavior('submit-message')
     var indexElem = document.queryBehavior('messages-index')
 
+    store.dispatch('subscribeToCurrent', indexElem.dataset.id)
+
     const form = new Vue({
       el: formElem,
       data: function () {
@@ -28,7 +30,8 @@ Punchbox.on('Messages', {
         submit: function(e) {
           e.preventDefault()
 
-          App.conversation[this.uuid].speak({ content: this.content })
+          store.dispatch('speakToCurrent', { content: this.content })
+
           this.content = ''
         }
       }
@@ -39,13 +42,13 @@ Punchbox.on('Messages', {
       store,
       data: function () {
         return {
-          messages: this.$store.state.messages
+          messages: this.$store.state.currentMessages
         }
       },
       beforeCreate: function() {
         var messages = JSON.parse(indexElem.dataset.messages)
 
-        this.$store.commit('setMessages', messages)
+        this.$store.commit('setCurrentMessages', messages)
       }
     })
 
