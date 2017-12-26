@@ -8,6 +8,9 @@ export const store = new Vuex.Store({
     messages: []
   },
   mutations: {
+    setMessages (state, messages) {
+      state.messages = messages
+    },
     pushMessages (state, messages) {
       state.messages.push(...messages)
     }

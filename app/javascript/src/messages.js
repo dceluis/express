@@ -45,7 +45,7 @@ Punchbox.on('Messages', {
       beforeCreate: function() {
         var messages = JSON.parse(indexElem.dataset.messages)
 
-        this.$store.commit('pushMessages', messages)
+        this.$store.commit('setMessages', messages)
       }
     })
 
