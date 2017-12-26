@@ -62,7 +62,6 @@ end
 group :development do
   gem 'bullet'
   gem 'guard', '~> 2.14'
-  gem 'guard-livereload', '~> 2.5', require: false
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'pry-rails'
   gem 'rubocop', '~> 0.49.1', require: false
