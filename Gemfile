@@ -20,7 +20,6 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'carrierwave', '~> 1.1'
-gem 'coffee-rails', '~> 4.2'
 gem 'fog-aws'
 gem 'kaminari', '~> 1.0.1'
 gem 'turbolinks', '~> 5'
